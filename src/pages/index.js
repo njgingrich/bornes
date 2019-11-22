@@ -1,8 +1,6 @@
-import React from 'react'
-import { TodoList } from '../components/TodoList/TodoList';
+import React from "react";
+import { App } from "components/App";
 
-export function App() {
-  return (
-    <TodoList />
-  )
+export function IndexPage() {
+  return <App />;
 }
