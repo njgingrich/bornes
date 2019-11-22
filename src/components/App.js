@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import AddTodo from "features/todos/components/AddTodo";
-import TodoList from "features/todos/components/TodoList";
+import VisibleTodoList from "features/todos/components/VisibleTodoList";
 import Filters from "features/filters/components/Filters";
 
 export function App() {
   return (
     <Fragment>
       <AddTodo />
-      <TodoList />
+      <VisibleTodoList />
       <Filters />
     </Fragment>
   );

@@ -10,7 +10,7 @@ const mapDispatchToProps = { setVisibilityFilter }
 
 function FilterButton({ active, children, filter, setVisibilityFilter }) {
   return (
-    <button disabled={active} onClick={() => setVisibilityFilter(filter)}>
+    <button disabled={active} onClick={() => setVisibilityFilter({ filter })}>
       {children}
     </button>
   )
