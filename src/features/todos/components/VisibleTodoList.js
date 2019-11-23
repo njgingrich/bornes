@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
-import { createSelector } from '@reduxjs/toolkit';
-import { toggleTodo } from 'features/todos/todosSlice';
-import TodoList from 'features/todos/components/TodoList';
-import { VisibilityFilters } from 'features/filters/filtersSlice';
+import { connect } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
+import { toggleTodo } from "features/todos/todosSlice";
+import TodoList from "features/todos/components/TodoList";
+import { VisibilityFilters } from "features/filters/filtersSlice";
 
-const selectTodos = state => state.todos
-const selectFilter = state => state.visibilityFilter
+const selectTodos = state => state.todos;
+const selectFilter = state => state.visibilityFilter;
 
 const selectVisibleTodos = createSelector(
   [selectTodos, selectFilter],
@@ -21,11 +21,11 @@ const selectVisibleTodos = createSelector(
         throw new Error(`Unknown filter: ${filter}`);
     }
   }
-)
+);
 
 const mapStateToProps = state => ({
   todos: selectVisibleTodos(state),
-})
-const mapDispatchToProps = { toggleTodo }
+});
+const mapDispatchToProps = { toggleTodo };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
