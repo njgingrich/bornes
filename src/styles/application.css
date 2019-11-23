@@ -35,3 +35,12 @@ h1, h2, h3, h4, h5, h6, .heading {
 .status-bar__clock {
   font-size: 2rem;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row__align-center {
+  align-items: center;
+}

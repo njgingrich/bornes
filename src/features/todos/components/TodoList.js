@@ -1,16 +1,18 @@
 import React from 'react';
 import Todo from 'features/todos/components/Todo';
 
-function TodoList({ todos, toggleTodo }) {
+function TodoList({ todos, deleteTodo, toggleTodo }) {
   return (
     <ul>
       {todos.map(todo => (
-        <Todo
-          key={todo.id}
-          completed={todo.completed}
-          onClick={() => toggleTodo(todo)}
-          text={todo.text}
-        />
+        <div key={todo.id} className="row row__align-center">
+          <Todo
+            completed={todo.completed}
+            onClick={() => toggleTodo(todo)}
+            text={todo.text}
+          />
+          <button onClick={() => deleteTodo(todo)}>X</button>
+        </div>
       ))}
     </ul>
   );
