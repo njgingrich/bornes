@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { addTodo } from "features/todos/todosSlice";
+import { addTodo } from 'features/todos/todosSlice';
 
 const mapDispatchToProps = { addTodo };
 
 function AddTodo({ addTodo }) {
-  const [todoText, setTodoText] = useState("");
+  const [todoText, setTodoText] = useState('');
 
   function onChange(e) {
     setTodoText(e.target.value);
@@ -18,7 +18,7 @@ function AddTodo({ addTodo }) {
     if (!todoText.trim()) return;
 
     addTodo(todoText);
-    setTodoText("");
+    setTodoText('');
   }
 
   return (

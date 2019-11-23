@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.page-layout {
+  display: grid;
+  grid-template-columns: [start] auto [end];
+  grid-template-rows: [start] auto [status-bar] 120px [end];
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  grid-row: start / status-bar;
+  grid-column: start / end;
+}
+
+.status-bar {
+  grid-row: status-bar / end;
+  grid-column: start / end;
+
+  background-color: #cfcfcf;
+  padding: 1rem;
+}
+
+.status-bar__clock {
+  font-size: 2rem;
+}

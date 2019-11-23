@@ -1,6 +1,6 @@
-import React from "react";
-import FilterButton from "features/filters/components/FilterButton";
-import { VisibilityFilters } from "features/filters/filtersSlice";
+import React from 'react';
+import FilterButton from 'features/filters/components/FilterButton';
+import { VisibilityFilters } from 'features/filters/filtersSlice';
 
 export default function Filters() {
   return (

@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Todo({ completed, onClick, text }) {
   return (
     <li
       onClick={onClick}
-      style={{ textDecoration: completed ? "line-through" : "none" }}
+      style={{ textDecoration: completed ? 'line-through' : 'none' }}
     >
       {text}
     </li>

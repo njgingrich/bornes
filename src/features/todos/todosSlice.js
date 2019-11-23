@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import uuid from "uuid/v4";
+import { createSlice } from '@reduxjs/toolkit';
+import uuid from 'uuid/v4';
 
 const todosSlice = createSlice({
-  name: "todos",
+  name: 'todos',
   initialState: [],
   reducers: {
     addTodo: {

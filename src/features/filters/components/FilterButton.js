@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   setVisibilityFilter,
   VisibilityFilters,
-} from "features/filters/filtersSlice";
+} from 'features/filters/filtersSlice';
 
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.visibilityFilter,

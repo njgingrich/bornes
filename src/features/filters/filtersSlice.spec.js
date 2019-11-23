@@ -1,14 +1,14 @@
 import filters, {
   setVisibilityFilter,
   VisibilityFilters,
-} from "./filtersSlice";
+} from './filtersSlice';
 
-describe("filters reducer", () => {
-  it("should handle initial state", () => {
+describe('filters reducer', () => {
+  it('should handle initial state', () => {
     expect(filters(undefined, {})).toEqual(VisibilityFilters.SHOW_ALL);
   });
 
-  it("should handle changing filters", () => {
+  it('should handle changing filters', () => {
     const setActiveAction = {
       type: setVisibilityFilter.type,
       payload: { filter: VisibilityFilters.SHOW_ACTIVE },
