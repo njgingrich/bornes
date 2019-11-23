@@ -1,4 +1,4 @@
-import todos, { addTodo, toggleTodo } from './todosSlice';
+import todos, { addTodo, deleteTodo, toggleTodo } from './todosSlice';
 
 describe('todos reducer', () => {
   it('should handle initial state', () => {
@@ -55,5 +55,34 @@ describe('todos reducer', () => {
       { completed: true, id: 1, text: 'Testing 2' },
       { completed: false, id: 2, text: 'Testing 3' },
     ]);
+  });
+
+  it('should handle deleting todos', () => {
+    expect(
+      todos(
+        [
+          { completed: false, id: 0, text: 'Testing' },
+          { completed: false, id: 1, text: 'Testing 2' },
+          { completed: false, id: 2, text: 'Testing 3' },
+        ],
+        { type: deleteTodo.type, payload: { id: 1 } }
+      )
+    ).toEqual([
+      { completed: false, id: 0, text: 'Testing' },
+      { completed: false, id: 2, text: 'Testing 3' },
+    ]);
+
+    expect(
+      todos([{ completed: false, id: 0, text: 'Testing' }], {
+        type: deleteTodo.type,
+        payload: { id: 0 },
+      })
+    ).toEqual([]);
+  });
+
+  it('should handle deleting an invalid todo', () => {
+    expect(todos([], { type: deleteTodo.type, payload: { id: 1 } })).toEqual(
+      []
+    );
   });
 });
