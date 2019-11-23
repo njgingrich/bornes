@@ -79,7 +79,11 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "^components(.*)$": "<rootDir>/src/components$1",
+    "^features(.*)$": "<rootDir>/src/features$1",
+    "^pages(.*)$": "<rootDir>/src/pages$1",
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

@@ -29,3 +29,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = { toggleTodo };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export { selectVisibleTodos };
