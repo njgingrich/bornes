@@ -13,15 +13,22 @@ h1, h2, h3, h4, h5, h6, .heading {
 
 .page-layout {
   display: grid;
-  grid-template-columns: [start] auto [end];
+  grid-template-columns: [start] 320px [content] auto [end];
   grid-template-rows: [start] auto [status-bar] 120px [end];
   height: 100vh;
   width: 100vw;
 }
 
-.content {
+.groups-section {
   grid-row: start / status-bar;
-  grid-column: start / end;
+  grid-column: start / content;
+}
+
+.todos-section {
+  grid-row: start / status-bar;
+  grid-column: content / end;
+
+  padding: 2rem;
 }
 
 .status-bar {
@@ -43,4 +50,22 @@ h1, h2, h3, h4, h5, h6, .heading {
 
 .row__align-center {
   align-items: center;
+}
+
+.groups-list {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.groups-add {
+  height: 10%;
+}
+
+.groups-list__end {
+  margin-top: auto;
 }
