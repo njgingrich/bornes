@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import rootReducer from './reducers';
 
-import { IndexPage } from './pages';
+import App from 'components/App';
 
 const useLocalStore = store => next => action => {
   next(action);
@@ -21,7 +21,7 @@ const store = configureStore({
 
 render(
   <Provider store={store}>
-    <IndexPage />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
