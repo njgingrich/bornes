@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from 'features/todos/components/Todo';
 
-function TodoList({ todos, deleteTodo, toggleTodo }) {
+function TodoList({ todos, deleteTodo, groupId, toggleTodo }) {
   return (
     <ul>
       {todos.map(todo => (
@@ -11,7 +11,7 @@ function TodoList({ todos, deleteTodo, toggleTodo }) {
             onClick={() => toggleTodo(todo)}
             text={todo.text}
           />
-          <button onClick={() => deleteTodo(todo)}>X</button>
+          <button onClick={() => deleteTodo(todo, groupId)}>X</button>
         </div>
       ))}
     </ul>

@@ -25,6 +25,7 @@ const selectVisibleTodos = createSelector(
 
 const mapStateToProps = state => ({
   todos: selectVisibleTodos(state),
+  groupId: state.currentGroup,
 });
 
 const mapDispatchToProps = { deleteTodo, toggleTodo };
