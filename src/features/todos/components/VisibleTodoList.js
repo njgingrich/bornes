@@ -4,7 +4,14 @@ import { deleteTodo, toggleTodo } from 'features/todos/todosSlice';
 import TodoList from 'features/todos/components/TodoList';
 import { VisibilityFilters } from 'features/filters/filtersSlice';
 
-const selectTodos = state => state.todos;
+const selectTodos = state => {
+  const currentGroup = state.groups.find(
+    group => group.id === state.currentGroup
+  );
+  if (!currentGroup) return [];
+
+  return currentGroup.todos.map(id => state.todos.find(t => t.id === id));
+};
 const selectFilter = state => state.visibilityFilter;
 
 const selectVisibleTodos = createSelector(
