@@ -1,8 +1,11 @@
 import uuid from 'uuid/v4';
-import { selectVisibleTodos } from 'features/todos/components/VisibleTodoList';
+import {
+  selectVisibleTodos,
+  getTodos,
+} from 'features/todos/components/VisibleTodoList';
 import { VisibilityFilters } from 'features/filters/filtersSlice';
 
-describe('Visible TodoList selector', () => {
+describe('VisibleTodoList selector', () => {
   const todosList = [
     { id: uuid(), completed: false, text: 'todo #1' },
     { id: uuid(), completed: false, text: 'todo #2' },
@@ -28,5 +31,60 @@ describe('Visible TodoList selector', () => {
       VisibilityFilters.SHOW_ACTIVE
     );
     expect(selectedTodos.length).toEqual(3);
+  });
+});
+
+describe('VisibleTodoList state selector function', () => {
+  it('should get todos for the correct group', () => {
+    expect(
+      getTodos({
+        currentGroup: 0,
+        groups: [
+          { id: 0, todos: [2, 3] },
+          { id: 1, todos: [1] },
+          { id: 2, todos: [] },
+        ],
+        todos: [
+          { id: 1, text: 'Todo One', completed: false },
+          { id: 2, text: 'Todo Two', completed: false },
+          { id: 3, text: 'Todo Three', completed: false },
+        ],
+      })
+    ).toEqual([
+      { id: 2, text: 'Todo Two', completed: false },
+      { id: 3, text: 'Todo Three', completed: false },
+    ]);
+
+    expect(
+      getTodos({
+        currentGroup: 1,
+        groups: [
+          { id: 0, todos: [2, 3] },
+          { id: 1, todos: [1] },
+          { id: 2, todos: [] },
+        ],
+        todos: [
+          { id: 1, text: 'Todo One', completed: false },
+          { id: 2, text: 'Todo Two', completed: false },
+          { id: 3, text: 'Todo Three', completed: false },
+        ],
+      })
+    ).toEqual([{ id: 1, text: 'Todo One', completed: false }]);
+
+    expect(
+      getTodos({
+        currentGroup: 2,
+        groups: [
+          { id: 0, todos: [2, 3] },
+          { id: 1, todos: [1] },
+          { id: 2, todos: [] },
+        ],
+        todos: [
+          { id: 1, text: 'Todo One', completed: false },
+          { id: 2, text: 'Todo Two', completed: false },
+          { id: 3, text: 'Todo Three', completed: false },
+        ],
+      })
+    ).toEqual([]);
   });
 });
