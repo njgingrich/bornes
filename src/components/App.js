@@ -1,4 +1,6 @@
 import React from 'react';
+import { hot } from 'react-hot-loader/root';
+
 import AddTodo from 'features/todos/components/AddTodo';
 import VisibleTodoList from 'features/todos/components/VisibleTodoList';
 import Filters from 'features/filters/components/Filters';
@@ -8,7 +10,7 @@ import TodoGroupList from 'features/groups/components/TodoGroupList';
 import StatusBar from 'components/StatusBar';
 import '../styles/application.css';
 
-export function App() {
+function App() {
   return (
     <main className="page-layout">
       <section className="groups-section">
@@ -28,3 +30,5 @@ export function App() {
     </main>
   );
 }
+
+export default hot(App);
