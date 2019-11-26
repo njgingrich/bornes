@@ -1,3 +1,4 @@
+import uuid from 'uuid/v4';
 import todos, { addTodo, deleteTodo, toggleTodo } from './todosSlice';
 
 describe('todos reducer', () => {

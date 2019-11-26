@@ -10,8 +10,8 @@ const todosSlice = createSlice({
         const { id, text } = action.payload;
         state.push({ id, text, completed: false });
       },
-      prepare(text) {
-        return { payload: { text, id: uuid() } };
+      prepare(text, groupId) {
+        return { payload: { text, id: uuid(), groupId } };
       },
     },
     toggleTodo(state, action) {
