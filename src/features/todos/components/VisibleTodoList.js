@@ -4,7 +4,7 @@ import { deleteTodo, toggleTodo } from 'features/todos/todosSlice';
 import TodoList from 'features/todos/components/TodoList';
 import { VisibilityFilters } from 'features/filters/filtersSlice';
 
-const selectTodos = state => {
+export const getTodos = state => {
   const currentGroup = state.groups.find(
     group => group.id === state.currentGroup
   );
@@ -12,10 +12,10 @@ const selectTodos = state => {
 
   return currentGroup.todos.map(id => state.todos.find(t => t.id === id));
 };
-const selectFilter = state => state.visibilityFilter;
+const getFilter = state => state.visibilityFilter;
 
 const selectVisibleTodos = createSelector(
-  [selectTodos, selectFilter],
+  [getTodos, getFilter],
   (todos, filter) => {
     switch (filter) {
       case VisibilityFilters.SHOW_ALL:
