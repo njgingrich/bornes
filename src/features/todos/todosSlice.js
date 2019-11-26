@@ -20,8 +20,13 @@ const todosSlice = createSlice({
         todo.completed = !todo.completed;
       }
     },
-    deleteTodo(state, action) {
-      return state.filter(todo => todo.id !== action.payload.id);
+    deleteTodo: {
+      reducer(state, action) {
+        return state.filter(todo => todo.id !== action.payload.id);
+      },
+      prepare(todo, groupId) {
+        return { payload: { id: todo.id, groupId } };
+      },
     },
   },
 });
