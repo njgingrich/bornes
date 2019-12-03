@@ -1,14 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
 
-import AddTodo from 'features/todos/components/AddTodo';
-import VisibleTodoList from 'features/todos/components/VisibleTodoList';
-import Filters from 'features/filters/components/Filters';
 import AddGroup from 'features/groups/components/AddGroup';
 import TodoGroupList from 'features/groups/components/TodoGroupList';
 
 import StatusBar from 'components/StatusBar';
 import '../styles/application.css';
+import GroupView from 'features/currentGroup/GroupView';
 
 function App() {
   return (
@@ -20,9 +18,7 @@ function App() {
         </div>
       </section>
       <section className="todos-section">
-        <AddTodo />
-        <VisibleTodoList />
-        <Filters />
+        <GroupView />
       </section>
       <footer className="status-bar">
         <StatusBar />

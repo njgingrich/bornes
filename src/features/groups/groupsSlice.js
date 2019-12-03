@@ -22,6 +22,11 @@ const groupsSlice = createSlice({
         return { payload: { id: uuid(), name } };
       },
     },
+    deleteGroup(state, action) {
+      if (state.length <= 1) return state;
+
+      return state.filter(group => group.id !== action.payload.id);
+    },
   },
   extraReducers: {
     [addTodo]: (state, action) => {
@@ -39,5 +44,5 @@ const groupsSlice = createSlice({
   },
 });
 
-export const { addGroup } = groupsSlice.actions;
+export const { addGroup, deleteGroup } = groupsSlice.actions;
 export default groupsSlice.reducer;

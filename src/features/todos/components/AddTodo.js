@@ -4,12 +4,7 @@ import { connect } from 'react-redux';
 
 import { addTodo } from 'features/todos/todosSlice';
 
-const mapStateToProps = state => ({
-  currentGroupId: state.currentGroup,
-});
-const mapDispatchToProps = { addTodo };
-
-function AddTodo({ addTodo, currentGroupId }) {
+function AddTodo({ addTodo, groupId }) {
   const [todoText, setTodoText] = useState('');
 
   function onChange(e) {
@@ -20,7 +15,7 @@ function AddTodo({ addTodo, currentGroupId }) {
     e.preventDefault();
     if (!todoText.trim()) return;
 
-    addTodo(todoText, currentGroupId);
+    addTodo(todoText, groupId);
     setTodoText('');
   }
 
@@ -33,7 +28,8 @@ function AddTodo({ addTodo, currentGroupId }) {
 }
 AddTodo.propTypes = {
   addTodo: PropTypes.func.isRequired,
-  currentGroupId: PropTypes.string.isRequired,
+  groupId: PropTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);
+const mapDispatchToProps = { addTodo };
+export default connect(null, mapDispatchToProps)(AddTodo);

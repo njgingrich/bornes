@@ -37,54 +37,63 @@ describe('VisibleTodoList selector', () => {
 describe('VisibleTodoList state selector function', () => {
   it('should get todos for the correct group', () => {
     expect(
-      getTodos({
-        currentGroup: 0,
-        groups: [
-          { id: 0, todos: [2, 3] },
-          { id: 1, todos: [1] },
-          { id: 2, todos: [] },
-        ],
-        todos: [
-          { id: 1, text: 'Todo One', completed: false },
-          { id: 2, text: 'Todo Two', completed: false },
-          { id: 3, text: 'Todo Three', completed: false },
-        ],
-      })
+      getTodos(
+        {
+          currentGroup: 0,
+          groups: [
+            { id: 0, todos: [2, 3] },
+            { id: 1, todos: [1] },
+            { id: 2, todos: [] },
+          ],
+          todos: [
+            { id: 1, text: 'Todo One', completed: false },
+            { id: 2, text: 'Todo Two', completed: false },
+            { id: 3, text: 'Todo Three', completed: false },
+          ],
+        },
+        { groupId: 0 }
+      )
     ).toEqual([
       { id: 2, text: 'Todo Two', completed: false },
       { id: 3, text: 'Todo Three', completed: false },
     ]);
 
     expect(
-      getTodos({
-        currentGroup: 1,
-        groups: [
-          { id: 0, todos: [2, 3] },
-          { id: 1, todos: [1] },
-          { id: 2, todos: [] },
-        ],
-        todos: [
-          { id: 1, text: 'Todo One', completed: false },
-          { id: 2, text: 'Todo Two', completed: false },
-          { id: 3, text: 'Todo Three', completed: false },
-        ],
-      })
+      getTodos(
+        {
+          currentGroup: 1,
+          groups: [
+            { id: 0, todos: [2, 3] },
+            { id: 1, todos: [1] },
+            { id: 2, todos: [] },
+          ],
+          todos: [
+            { id: 1, text: 'Todo One', completed: false },
+            { id: 2, text: 'Todo Two', completed: false },
+            { id: 3, text: 'Todo Three', completed: false },
+          ],
+        },
+        { groupId: 1 }
+      )
     ).toEqual([{ id: 1, text: 'Todo One', completed: false }]);
 
     expect(
-      getTodos({
-        currentGroup: 2,
-        groups: [
-          { id: 0, todos: [2, 3] },
-          { id: 1, todos: [1] },
-          { id: 2, todos: [] },
-        ],
-        todos: [
-          { id: 1, text: 'Todo One', completed: false },
-          { id: 2, text: 'Todo Two', completed: false },
-          { id: 3, text: 'Todo Three', completed: false },
-        ],
-      })
+      getTodos(
+        {
+          currentGroup: 2,
+          groups: [
+            { id: 0, todos: [2, 3] },
+            { id: 1, todos: [1] },
+            { id: 2, todos: [] },
+          ],
+          todos: [
+            { id: 1, text: 'Todo One', completed: false },
+            { id: 2, text: 'Todo Two', completed: false },
+            { id: 3, text: 'Todo Three', completed: false },
+          ],
+        },
+        { groupId: 2 }
+      )
     ).toEqual([]);
   });
 });
