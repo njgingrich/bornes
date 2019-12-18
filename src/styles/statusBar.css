@@ -1,0 +1,12 @@
+.status-bar {
+  grid-row: status-bar / end;
+  grid-column: start / end;
+
+  color: var(--white);
+  background-color: var(--green-3);
+  padding: 1rem;
+}
+
+.status-bar__clock {
+  font-size: 2rem;
+}

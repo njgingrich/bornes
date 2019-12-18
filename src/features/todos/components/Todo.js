@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export default function Todo({ completed, onClick, text }) {
   return (
     <li
+      className={`todo ${completed ? 'todo__completed' : ''}`}
       onClick={onClick}
-      style={{ textDecoration: completed ? 'line-through' : 'none' }}
     >
       {text}
     </li>

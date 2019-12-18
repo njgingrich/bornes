@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { addTodo } from 'features/todos/todosSlice';
+import Input from 'components/Input';
+import IconButton from 'components/IconButton';
+import ConfirmIcon from 'icons/ConfirmIcon';
 
 function AddTodo({ addTodo, groupId }) {
   const [todoText, setTodoText] = useState('');
@@ -21,8 +24,10 @@ function AddTodo({ addTodo, groupId }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <input value={todoText} onChange={onChange} />
-      <button type="submit">Add Todo</button>
+      <Input value={todoText} onChange={onChange} />
+      <IconButton type="submit">
+        <ConfirmIcon />
+      </IconButton>
     </form>
   );
 }

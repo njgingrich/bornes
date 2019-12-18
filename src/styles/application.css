@@ -1,14 +1,28 @@
+@import "components.css";
+@import "groups.css";
+@import "statusBar.css";
+@import "todos.css";
+
+:root {
+  --gray-1: #F1F1F1;
+  --gray-2: #EDE2E7;
+  --gray-3: #CBD5E0;
+  --gray-4: #718096;
+  --gray-5: #4A5568;
+  --black: #2D3748;
+  --white: #FFFFFF;
+  --green-3: #244823;
+
+  --text-color: var(--gray-5);
+}
+
 * {
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
   margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6, .heading {
-  font-family: 'Playfair Display', serif;
 }
 
 .page-layout {
@@ -31,18 +45,6 @@ h1, h2, h3, h4, h5, h6, .heading {
   padding: 2rem;
 }
 
-.status-bar {
-  grid-row: status-bar / end;
-  grid-column: start / end;
-
-  background-color: #cfcfcf;
-  padding: 1rem;
-}
-
-.status-bar__clock {
-  font-size: 2rem;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -50,26 +52,4 @@ h1, h2, h3, h4, h5, h6, .heading {
 
 .row__align-center {
   align-items: center;
-}
-
-.groups-list {
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
-}
-
-.groups-add {
-  height: 10%;
-}
-
-.groups-list__end {
-  margin-top: auto;
-}
-
-.group__active {
-  font-weight: bold;
 }

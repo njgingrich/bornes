@@ -1,0 +1,31 @@
+.input {
+  border: none;
+  border-bottom: 2px solid var(--gray-3);
+  width: 500px;
+
+  padding: 4px;
+}
+
+.input:focus {
+  border-color: var(--green-3);
+}
+
+.button {
+  appearance: none;
+  border: none;
+  font-size: 24px;
+  background-color: var(--white);
+  border: 2px solid var(--gray-2);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #eaeaea;
+}
+
+.button.icon-button {
+  font-size: 1rem;
+  padding: 0;
+  border-color: transparent;
+}

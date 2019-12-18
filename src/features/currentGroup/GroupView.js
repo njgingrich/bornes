@@ -5,6 +5,8 @@ import AddTodo from 'features/todos/components/AddTodo';
 import VisibleTodoList from 'features/todos/components/VisibleTodoList';
 import Filters from 'features/filters/components/Filters';
 import { deleteGroup } from 'features/groups/groupsSlice';
+import IconButton from 'components/IconButton';
+import TrashIcon from 'icons/TrashIcon';
 
 function GroupView({ deleteGroup, group }) {
   function onClick() {
@@ -13,9 +15,11 @@ function GroupView({ deleteGroup, group }) {
 
   return (
     <Fragment>
-      <div className="row">
+      <div className="group-header">
         <h2>{group.name}</h2>
-        <button onClick={onClick}>X</button>
+        <IconButton onClick={onClick}>
+          <TrashIcon />
+        </IconButton>
       </div>
       <AddTodo groupId={group.id} />
       <VisibleTodoList groupId={group.id} />

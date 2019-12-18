@@ -8,7 +8,12 @@ const todosSlice = createSlice({
     addTodo: {
       reducer(state, action) {
         const { id, text } = action.payload;
-        state.push({ id, text, completed: false });
+        state.push({
+          id,
+          text,
+          completed: false,
+          createdAt: new Date().getTime(),
+        });
       },
       prepare(text, groupId) {
         return { payload: { text, id: uuid(), groupId } };
