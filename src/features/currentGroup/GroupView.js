@@ -21,9 +21,9 @@ function GroupView({ deleteGroup, group }) {
           <TrashIcon />
         </IconButton>
       </div>
+      <Filters />
       <AddTodo groupId={group.id} />
       <VisibleTodoList groupId={group.id} />
-      <Filters />
     </Fragment>
   );
 }
